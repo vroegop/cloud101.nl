@@ -8,8 +8,8 @@ export class Cloud101PipelineStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
-        const pipeline = new CodePipeline(this, 'Pipeline', {
-            pipelineName: 'MyPipeline',
+        const pipeline = new CodePipeline(this, 'Cloud101Pipeline', {
+            pipelineName: 'Cloud101Pipeline',
             synth: new ShellStep('Synth', {
                 input: CodePipelineSource.gitHub('vroegop/cloud101.nl', 'main'),
                 commands: ['npm ci', 'npm run build', 'npx cdk synth']

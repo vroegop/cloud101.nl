@@ -19,6 +19,6 @@ new Cloud101NlStack(app, 'Cloud101NlStack', {
     crossRegionReferences: true,
 });
 
-new Cloud101PipelineStack(app, 'MyPipelineStack', {
+new Cloud101PipelineStack(app, 'Cloud101PipelineStack', {
     env: { region: 'eu-west-1', account: '531843824238' },
 });
