@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Learning Path Presentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/monokai.min.css">
+    <style>
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .reveal pre {
+            font-size: 0.8em;
+        }
+
+        .reveal pre code {
+            max-height: 700px;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="chapter-0" data-transition="slide" data-about="the author">
+            <section class="slide-content">
+                <div class="center">
+                    <h1>CDK</h1>
+                    <h2>Randy Vroegop</h2>
+                    <h3>Software Engineer @ Luminis</h3>
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <div class="center">
+                    <h1>Goal for 2023</h1>
+                    <img src="presentation/img/harrypotter.jpg" style="height: 70vh;">
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <div class="center">
+                    <h1>To the rescue</h1>
+                    <img src="presentation/img/duo.jpg" style="height: 70vh;">
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <div class="center">
+                    <h1>Goal for today</h1>
+                    <img src="presentation/img/cdk.png" style="height: 40vw;">
+                </div>
+            </section>
+
+            <section class="slide-content">
+                <div class="center">
+                    <h1>Credits</h1>
+                    <a href="https://www.freepik.com/free-vector/open-automation-architecture-abstract-concept-illustration_12291073.htm#query=automation&position=2&from_view=search&track=sph">Image by vectorjuice</a> on Freepik
+                    <a href="https://www.freepik.com/free-vector/illustration-character-fixing-cogwheel_2921046.htm#query=holding%20a%20cog&position=28&from_view=search&track=ais">Image by rawpixel.com</a> on Freepik
+                    <a href="https://www.freepik.com/free-vector/restaurant-meal-concept_4189158.htm#query=restaurant%20transparent&position=7&from_view=search&track=ais">Image by macrovector</a> on Freepik
+                    <a href="https://www.freepik.com/free-vector/cheerful-sexy-girl-restaurant-waiter-with-tray-wine-glass-portrait-isolated-white-background-vector-illustration_1158617.htm#query=restaurant%20transparent&position=5&from_view=search&track=ais">Image by macrovector</a> on Freepik
+                    <a href="https://www.freepik.com/free-vector/system-administrator-job-set_5889716.htm#query=server%20rack&position=18&from_view=search&track=ais">Image by pch.vector</a> on Freepik
+                    <a href="https://www.freepik.com/free-vector/cloud-information-storage-collocated-cloud-computing-data-synchronization-harmonization-available-accesssible-digital-connected-backup-vector-isolated-concept-metaphor-illustration_12083500.htm#query=cloud%20deployment&position=21&from_view=search&track=ais">Image by vectorjuice</a> on Freepik
+                    Image by <a href="https://www.freepik.com/free-vector/flat-engineering-construction-illustrated_13107137.htm#query=construct&position=36&from_view=search&track=sph">Freepik</a>
+                    <a href="https://www.freepik.com/free-vector/rocket-blueprint-design_1013903.htm#query=blueprint&position=21&from_view=search&track=sph">Image by photoroyalty</a> on Freepik
+                </div>
+            </section>
+        </section>
+
+        <section class="chapter-1" data-transition="slide" data-about="the restaurant">
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <h1>Restaurant application</h1>
+                    <p>&nbsp;</p>
+                    <p>Kitchen</p>
+                    <p>Waiters</p>
+                    <p>Counter</p>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <h1>Waiters take orders</h1>
+                    <img src="presentation/img/robot-holding-phone.png" style="max-height: 70vh;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <h1>Kitchen reads orders</h1>
+                    <img src="presentation/img/robot-kitchen-screen.png" style="max-height: 70vh;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <h1>Payment & Reservations</h1>
+                    <img src="presentation/img/robot-checkout-counter.png" style="max-height: 70vh;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <h1>Application structure</h1>
+                    <img src="presentation/img/structure1.png" style="width: 50vw;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <img src="presentation/img/structure2.png" style="width: 50vw;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <img src="presentation/img/structure3.png" style="width: 50vw;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.jpg"
+                                      image2="chapter-1-img-2.jpg"
+                >
+                    <h1>Application structure</h1>
+                    <img src="presentation/img/structure.png" style="width: 70vw;">
+                </presentation-chapter>
+            </section>
+        </section>
+
+        <section class="chapter-2" data-transition="slide" data-about="CQRS basics">
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Separating reads & writes</h1>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Basics</h1>
+                    <img src="presentation/img/CQRS1.png" style="max-height: 70vh; max-width: 60vw;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Shared model</h1>
+                    <img src="presentation/img/CQRS2.png" style="max-height: 70vh; max-width: 60vw;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Shared model</h1>
+                    <img src="presentation/img/CQRS3.png" style="max-height: 70vh; max-width: 60vw;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Architecture</h1>
+                    <p>Please don't panic yet.</p>
+                    <img src="presentation/img/stickies.jpeg" style="width: 50vw; background-color:white; padding:10px; border-radius:4px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>What are we going to build</h1>
+                    <img src="presentation/img/frontend+event.svg" style="width: 75vw; background-color:white; padding:10px; border-radius:4px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>How far will we go?</h1>
+                    <img src="presentation/img/DRAWIO_ARCHITECTURE.svg" style="width: 75vw; background-color:white; padding:10px; border-radius:4px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Bonus: set up CI/CD</h1>
+                </presentation-chapter>
+            </section>
+
+        </section>
+
+        <section class="chapter-3" data-transition="slide" data-about="why cdk">
+
+            <!-- Slide 1: Introduction to Infrastructure Provisioning -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Infrastructure Evolution"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>A Journey</h1>
+                    <h2>Infrastructure Provisioning</h2>
+                    <p>My short history.</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 2: Traditional Infrastructure -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Traditional Methods"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Manual deployments</h1>
+                    <p>Raspberry PI or VPS</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 3: Cloud Vendor UI & CLI -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Cloud UI & CLI"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Container deployments</h1>
+                    <p>Hated it. Sorry!</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 4: Beanstalk and Managed Infra -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Beanstalk Era"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Cloud UI</h1>
+                    <p>Clickops, loved it. I know...</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 5: CDK, SAM, Terraform Introduction -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Modern Tooling"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Cloud UI</h1>
+                    <p>Beanstalk? Clickops made hard.</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 6: Focusing on AWS CDK -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Focus on AWS CDK"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Cloud tools</h1>
+                    <p>Cloudformation</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 7: Advantages of AWS CDK -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Benefits of AWS CDK"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Cloud tools</h1>
+                    <p>CDK, now learning was easy!</p>
+                </presentation-chapter>
+            </section>
+
+            <!-- Slide 8: Conclusion and Final Thoughts -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Conclusion"
+                                      image1="chapter-3-img-1.jpg"
+                                      image2="chapter-3-img-2.jpg"
+                >
+                    <h1>Conclusion</h1>
+                    <p>I find CDK accelerates my cloud journey like nothing else!</p>
+                </presentation-chapter>
+            </section>
+
+        </section>
+
+        <section class="chapter-4" data-transition="slide" data-about="cdk basics">
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Constructs</h1>
+                    <ul>
+                        <li>Programmable resources</li>
+                        <li>Define AWS building blocks</li>
+                    </ul>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Level 1</h1>
+                    <pre><code>
+// Create S3 bucket
+const bucket = new CfnBucket(this, 'MyBucket', {
+  bucketName: 'my-bucket',
+  accessControl: 'Private'
+});
+
+// Grant CloudFront access to the S3 bucket
+const bucketPolicy = new CfnResource(this, 'BucketPolicy', {
+  type: 'AWS::S3::BucketPolicy',
+  properties: {
+    bucket: bucket.ref,
+    policyDocument: {
+      Version: '2012-10-17',
+      Statement: [
+        {
+          Sid: 'AllowCloudFrontAccess',
+          Effect: 'Allow',
+          Principal: '*',
+          Action: 's3:GetObject',
+          Resource: `arn:${this.partition}:s3:::${bucket.ref}/*`,
+          Condition: {
+            StringLike: {
+              'aws:Referer': `https://${distribution.attrDomainName}`
+            }
+          }
+        }
+      ]
+    }
+  }
+});
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Level 2</h1>
+                    <pre><code>
+const bucket = new Bucket(this, 'MyBucket', {
+  bucketName: 'my-bucket'
+});
+
+bucket.grantRead(distribution);
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Level 3</h1>
+                    <pre><code>
+new CloudFrontToS3(this, 'cloudfront-s3', {});
+                    </code></pre>
+                    <img src="./presentation/img/cloudfront-to-s3.png" style="background-color: #fff;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Stacks</h1>
+                    <ul>
+                        <li>Grouped programmable resources</li>
+                        <li>Define a infrastructure section</li>
+                        <li>Usually split by responsibility</li>
+                    </ul>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Example</h1>
+                    <pre><code>
+export class BucketStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props);
+
+    new CloudFrontToS3(this, 'cloudfront-s3', {});
+
+    new cognito.UserPool(this, 'Pool');
+  }
+}
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>Live Demo</h1>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.jpg"
+                                      image2="chapter-4-img-2.jpg"
+                >
+                    <h1>CI/CD</h1>
+                    <pre><code>
+export class MyPipelineStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const pipeline = new CodePipeline(this, 'Pipeline', {
+      pipelineName: 'MyPipeline',
+      synth: new ShellStep('Synth', {
+        input: CodePipelineSource.gitHub('OWNER/REPO', 'main'),
+        commands: ['npm ci', 'npm run build', 'npx cdk synth']
+      })
+    });
+  }
+}
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+        </section>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/notes/notes.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/zoom/zoom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/plugin/highlight/highlight.min.js"></script>
+<script type="module" src="presentation/chapter.js"></script>
+<script>
+    Reveal.initialize({
+        width: "100%",
+        height: "100%",
+        margin: 0,
+        minScale: 1,
+        maxScale: 1,
+        controls: true,
+        progress: false,
+        history: true,
+        center: false,
+        slideNumber: true,
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'fade',
+        display: 'block',
+        plugins: [RevealNotes, RevealZoom, RevealHighlight]
+    });
+</script>
+</body>
+</html>
