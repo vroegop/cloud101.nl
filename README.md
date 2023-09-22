@@ -1,5 +1,7 @@
 # Welcome to the CDK TypeScript project
 
+A restaurant presentation
+
 ## Useful commands
 
 * `npm start`       start the presentation in dev mode
