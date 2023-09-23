@@ -27,7 +27,14 @@ export class Cloud101PipelineStage extends cdk.Stage {
     constructor(scope: Construct, id: string, props?: cdk.StageProps) {
         super(scope, id, props);
 
-        const cloud101Global = new Cloud101GlobalStack(this, 'Cloud101GlobalStack');
-        const cloud101 = new Cloud101NlStack(this, 'Cloud101NlStack');
+        const cloud101Global = new Cloud101GlobalStack(this, 'Cloud101GlobalStack', {
+            env: { region: 'us-east-1', account: '531843824238' },
+        });
+
+        const cloud101 = new Cloud101NlStack(this, 'Cloud101NlStack', {
+            env: { region: 'eu-west-1', account: '531843824238' },
+            cloudfrontCertificate: cloud101Global.cloudfrontCertificate,
+            crossRegionReferences: true,
+        });
     }
 }
