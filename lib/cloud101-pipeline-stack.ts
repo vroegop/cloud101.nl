@@ -12,7 +12,7 @@ export class Cloud101PipelineStack extends cdk.Stack {
             pipelineName: 'Cloud101Pipeline',
             synth: new ShellStep('Synth', {
                 input: CodePipelineSource.gitHub('vroegop/cloud101.nl', 'main'),
-                commands: ['npm ci', 'npm run build', 'npx cdk synth']
+                commands: ['npm ci', 'npm run build', 'cdk bootstrap', 'npx cdk synth']
             })
         });
 
