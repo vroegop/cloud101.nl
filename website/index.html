@@ -243,7 +243,21 @@
                                       image2="chapter-2-img-2.jpg"
                 >
                     <h1>What are we going to build</h1>
-                    <img src="presentation/img/frontend+event.svg" style="width: 75vw; background-color:white; padding:10px; border-radius:4px;">
+                    <img src="presentation/img/frontend.svg" style="width: 40vw; background-color:white; padding:10px; border-radius:4px;">
+
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>What are we going to build</h1>
+                    <img src="presentation/img/frontend-event.svg" style="width: 75vw; background-color:white; padding:10px; border-radius:4px;">
+
                 </presentation-chapter>
             </section>
 
@@ -283,8 +297,7 @@
                                       image2="chapter-3-img-2.jpg"
                 >
                     <h1>A Journey</h1>
-                    <h2>Infrastructure Provisioning</h2>
-                    <p>My short history.</p>
+                    <h2>My pain through the years</h2>
                 </presentation-chapter>
             </section>
 
@@ -297,7 +310,7 @@
                                       image2="chapter-3-img-2.jpg"
                 >
                     <h1>Manual deployments</h1>
-                    <p>Raspberry PI or VPS</p>
+                    <p>Excel ops</p>
                 </presentation-chapter>
             </section>
 
@@ -323,7 +336,7 @@
                                       image2="chapter-3-img-2.jpg"
                 >
                     <h1>Cloud UI</h1>
-                    <p>Clickops, loved it. I know...</p>
+                    <p>Clickops</p>
                 </presentation-chapter>
             </section>
 
@@ -335,8 +348,8 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Cloud UI</h1>
-                    <p>Beanstalk? Clickops made hard.</p>
+                    <h1>Beanstalk</h1>
+                    <p>Clickops hard mode</p>
                 </presentation-chapter>
             </section>
 
@@ -348,8 +361,8 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Cloud tools</h1>
-                    <p>Cloudformation</p>
+                    <h1>Cloudformation</h1>
+                    <p>Excel hard mode</p>
                 </presentation-chapter>
             </section>
 
@@ -361,8 +374,8 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Cloud tools</h1>
-                    <p>CDK, now learning was easy!</p>
+                    <h1>CDK</h1>
+                    <p>Finally, logic.</p>
                 </presentation-chapter>
             </section>
 
@@ -403,13 +416,15 @@
                                       image1="chapter-4-img-1.jpg"
                                       image2="chapter-4-img-2.jpg"
                 >
-                    <h1>Level 1</h1>
+                    <h1>Level 1 construct</h1>
                     <pre><code>
 // Create S3 bucket
 const bucket = new CfnBucket(this, 'MyBucket', {
   bucketName: 'my-bucket',
   accessControl: 'Private'
 });
+
+// define distribution
 
 // Grant CloudFront access to the S3 bucket
 const bucketPolicy = new CfnResource(this, 'BucketPolicy', {
@@ -445,11 +460,13 @@ const bucketPolicy = new CfnResource(this, 'BucketPolicy', {
                                       image1="chapter-4-img-1.jpg"
                                       image2="chapter-4-img-2.jpg"
                 >
-                    <h1>Level 2</h1>
+                    <h1>Level 2 construct</h1>
                     <pre><code>
 const bucket = new Bucket(this, 'MyBucket', {
   bucketName: 'my-bucket'
 });
+
+// define distribution ...
 
 bucket.grantRead(distribution);
                     </code></pre>
@@ -462,7 +479,7 @@ bucket.grantRead(distribution);
                                       image1="chapter-4-img-1.jpg"
                                       image2="chapter-4-img-2.jpg"
                 >
-                    <h1>Level 3</h1>
+                    <h1>Level 3 construct</h1>
                     <pre><code>
 new CloudFrontToS3(this, 'cloudfront-s3', {});
                     </code></pre>
@@ -478,9 +495,8 @@ new CloudFrontToS3(this, 'cloudfront-s3', {});
                 >
                     <h1>Stacks</h1>
                     <ul>
-                        <li>Grouped programmable resources</li>
-                        <li>Define a infrastructure section</li>
-                        <li>Usually split by responsibility</li>
+                        <li>Grouped constructs</li>
+                        <li>Split by responsibility</li>
                     </ul>
                 </presentation-chapter>
             </section>
@@ -523,8 +539,7 @@ export class BucketStack extends Stack {
                                       image2="chapter-4-img-2.jpg"
                 >
                     <h1>CI/CD</h1>
-                    <pre><code>
-export class MyPipelineStack extends cdk.Stack {
+                    <pre><code>export class MyPipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -535,9 +550,12 @@ export class MyPipelineStack extends cdk.Stack {
         commands: ['npm ci', 'npm run build', 'npx cdk synth']
       })
     });
+
+    pipeline.addStage(new MyDeployableStack(this, "id", {
+        env: { region: 'eu-west-1', account: '********' },
+    }));
   }
-}
-                    </code></pre>
+}</code></pre>
                 </presentation-chapter>
             </section>
 
