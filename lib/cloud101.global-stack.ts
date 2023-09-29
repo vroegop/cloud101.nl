@@ -8,7 +8,7 @@ export class Cloud101GlobalStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const hostedZone = HostedZone.fromLookup(this, 'dartsFrontendHostedZone', {
+    const hostedZone = HostedZone.fromLookup(this, 'cloud101HostedZone', {
       domainName: 'cloud101.nl'
     });
 
