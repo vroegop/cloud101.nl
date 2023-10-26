@@ -269,7 +269,7 @@
                                       image2="chapter-2-img-2.jpg"
                 >
                     <h1>How far will we go?</h1>
-                    <img src="presentation/img/DRAWIO_ARCHITECTURE.svg" style="width: 75vw; background-color:white; padding:10px; border-radius:4px;">
+                    <img src="presentation/img/DRAWIO_ARCHITECTURE.svg" style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
                 </presentation-chapter>
             </section>
 
@@ -281,6 +281,31 @@
                                       image2="chapter-2-img-2.jpg"
                 >
                     <h1>Bonus: set up CI/CD</h1>
+                    <img src="presentation/img/aws-pipeline.png" style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Bonus: set up CI/CD</h1>
+                    <img src="presentation/img/aws-build.png" style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CQRS"
+                                      image1="chapter-2-img-1.jpg"
+                                      image2="chapter-2-img-2.jpg"
+                >
+                    <h1>Bonus: set up CI/CD</h1>
+                    <img src="presentation/img/aws-ship.png" style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
                 </presentation-chapter>
             </section>
 
@@ -296,8 +321,9 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>A Journey</h1>
-                    <h2>My pain through the years</h2>
+                    <h1>Infrastructure in the cloud</h1>
+
+                    <img src="presentation/img/aws-daunting.png" style="max-width: 30%; max-height: 30vh;">
                 </presentation-chapter>
             </section>
 
@@ -309,8 +335,10 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Manual deployments</h1>
-                    <p>Excel ops</p>
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-ui-frustrations.png" style="max-width: 30%; max-height: 30vh;">
+
+                    <h2>user interface</h2>
                 </presentation-chapter>
             </section>
 
@@ -322,8 +350,10 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Container deployments</h1>
-                    <p>Hated it. Sorry!</p>
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-frustrations.png" style="max-width: 30%; max-height: 30vh;">
+
+                    <h2>cli</h2>
                 </presentation-chapter>
             </section>
 
@@ -335,8 +365,10 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Cloud UI</h1>
-                    <p>Clickops</p>
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-beanstalk-frustrations.png" style="max-width: 30%; max-height: 30vh;">
+
+                    <h2>beanstalk</h2>
                 </presentation-chapter>
             </section>
 
@@ -348,8 +380,10 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Beanstalk</h1>
-                    <p>Clickops hard mode</p>
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-yaml-frustrations.png" style="max-width: 30%; max-height: 30vh;">
+
+                    <h2>cloudformation</h2>
                 </presentation-chapter>
             </section>
 
@@ -361,8 +395,10 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>Cloudformation</h1>
-                    <p>Excel hard mode</p>
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-terraform-frustration.png" style="max-width: 30%; max-height: 30vh;">
+
+                    <h2>Terraform</h2>
                 </presentation-chapter>
             </section>
 
@@ -374,8 +410,10 @@
                                       image1="chapter-3-img-1.jpg"
                                       image2="chapter-3-img-2.jpg"
                 >
-                    <h1>CDK</h1>
-                    <p>Finally, logic.</p>
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-cdk-helper.png" style="max-width: 30%; max-height: 30vh;">
+
+                    <h2>cdk</h2>
                 </presentation-chapter>
             </section>
 
@@ -388,6 +426,8 @@
                                       image2="chapter-3-img-2.jpg"
                 >
                     <h1>Conclusion</h1>
+                    <img src="presentation/img/cdk-chess.png" style="max-width: 30%; max-height: 30vh;">
+
                     <p>I find CDK accelerates my cloud journey like nothing else!</p>
                 </presentation-chapter>
             </section>
@@ -558,7 +598,6 @@ export class BucketStack extends Stack {
 }</code></pre>
                 </presentation-chapter>
             </section>
-
         </section>
     </div>
 </div>
