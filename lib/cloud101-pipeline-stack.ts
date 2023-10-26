@@ -16,9 +16,7 @@ export class Cloud101PipelineStack extends cdk.Stack {
             })
         });
 
-        pipeline.addStage(new Cloud101PipelineStage(this, "deployCloud101", {
-            env: { region: 'eu-west-1', account: '531843824238' },
-        }));
+        pipeline.addStage(new Cloud101PipelineStage(this, "Cloud101Stage"));
     }
 }
 
@@ -27,11 +25,11 @@ export class Cloud101PipelineStage extends cdk.Stage {
     constructor(scope: Construct, id: string, props?: cdk.StageProps) {
         super(scope, id, props);
 
-        const cloud101Global = new Cloud101GlobalStack(this, 'Cloud101GlobalStack', {
+        const cloud101Global = new Cloud101GlobalStack(this, 'Cloud101-GlobalStack', {
             env: { region: 'us-east-1', account: '531843824238' },
         });
 
-        const cloud101 = new Cloud101NlStack(this, 'Cloud101NlStack', {
+        const cloud101 = new Cloud101NlStack(this, 'Cloud101-NlStack', {
             env: { region: 'eu-west-1', account: '531843824238' },
             cloudfrontCertificate: cloud101Global.cloudfrontCertificate,
             crossRegionReferences: true,

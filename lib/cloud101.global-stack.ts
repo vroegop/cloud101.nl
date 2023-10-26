@@ -12,9 +12,9 @@ export class Cloud101GlobalStack extends Stack {
       domainName: 'cloud101.nl'
     });
 
-    this.cloudfrontCertificate = new Certificate(this, 'cloud101-certificate', {
+    this.cloudfrontCertificate = new Certificate(this, 'cloud101_certificate', {
       domainName: 'cloud101.nl',
-      certificateName: 'cloud101-certificate',
+      certificateName: 'cloud101_certificate',
       validation: CertificateValidation.fromDns(hostedZone),
     });
   }

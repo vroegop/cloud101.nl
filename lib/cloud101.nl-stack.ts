@@ -23,7 +23,7 @@ export class Cloud101NlStack extends Stack {
     });
 
     // Create a bucket in which we can place our website
-    const bucket = new Bucket(this, 'Bucket', {
+    const bucket = new Bucket(this, 'cloud101Bucket', {
       bucketName: 'cloud101.nl',
       accessControl: BucketAccessControl.PRIVATE,
       removalPolicy: RemovalPolicy.DESTROY,
@@ -31,7 +31,7 @@ export class Cloud101NlStack extends Stack {
     });
 
     // Deploy the website to the bucket
-    new BucketDeployment(this, 'BucketDeployment', {
+    new BucketDeployment(this, 'cloud101BucketDeployment', {
       destinationBucket: bucket,
       sources: [ Source.asset(path.resolve(__dirname, '../website')) ],
       retainOnDelete: false,
@@ -42,7 +42,7 @@ export class Cloud101NlStack extends Stack {
     bucket.grantRead(originAccessIdentity);
 
     // Make a cloudfront distribution (CDN) to access the bucket without public access
-    const distribution = new Distribution(this, 'Distribution', {
+    const distribution = new Distribution(this, 'cloud101Distribution', {
       defaultRootObject: 'index.html',
       defaultBehavior: {
         origin: new S3Origin(bucket, { originAccessIdentity }),

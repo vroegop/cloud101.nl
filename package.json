@@ -11,7 +11,7 @@
     "serve": "es-dev-server --app-index website/index.html --node-resolve --watch --open",
     "cdk": "cdk",
     "bootstrap": "cdk bootstrap --profile rotterdam",
-    "deploy": "cdk deploy --profile rotterdam"
+    "deploy": "cdk deploy Cloud101PipelineStack --profile sandbox"
   },
   "devDependencies": {
     "@types/jest": "^29.5.4",
