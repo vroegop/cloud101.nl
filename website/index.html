@@ -14,8 +14,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100vw;
-            height: 100vh;
+            width: 1920px;
+            height: 1080px;
         }
 
         .reveal h1 img {
@@ -24,6 +24,7 @@
 
         .reveal pre {
             font-size: 0.8em;
+            box-shadow: #999 0 0 2px 1px;
         }
 
         .reveal pre code {
@@ -32,23 +33,29 @@
 
         .img-50-50 {
             max-width: 50%;
-            max-height: 50vw;
-            width: 50%;
+            max-height: calc(1920px / 2);
         }
 
-        img {
-            border-radius: 2%;
+        .reveal img {
+            max-height: 700px;
+            background-color:white;
+            padding:10px;
+            border-radius:2%;
+        }
+
+        .mono {
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
 <div class="reveal">
     <div class="slides">
-        <section class="chapter-0" data-transition="slide" data-about="the author">
+        <section  data-transition="slide" data-about="the author">
             <section class="slide-content">
                 <div class="center">
-                    <h1>CDK by Randy Vroegop</h1>
-                    <img src="presentation/img/nerd.png" style="width: 300px; border-radius: 40%;">
+                    <h1>AWS - IAC - CDK</h1>
+                    <img src="presentation/img/panda.webp" style="max-width: 30%; border-radius: 3%;">
                     <p><i class="fa-regular fa-envelope"></i> randy.vroegop@luminis.eu</p>
                     <p><i class="fa-brands fa-github"></i> github.com/vroegop</p>
                 </div>
@@ -57,37 +64,836 @@
             <section class="slide-content">
                 <div class="center">
                     <h1>Goal for 2023</h1>
-                    <img src="presentation/img/harrypotter.jpg" style="max-height: 70vh;">
+                    <img src="presentation/img/harrypotter.webp" style="max-height: 700px;">
                 </div>
             </section>
 
             <section class="slide-content">
                 <div class="center">
                     <h1>To the rescue</h1>
-                    <img src="presentation/img/duo.jpg" style="max-height: 70vh;">
+                    <img src="presentation/img/duo.webp" style="max-height: 700px;">
                 </div>
             </section>
 
             <section class="slide-content">
                 <div class="center">
                     <h1>Goal for today</h1>
-                    <img src="presentation/img/cdk.png" style="max-height: 70vh;">
+                    <img src="presentation/img/cdk.webp" style="max-height: 700px;">
                 </div>
             </section>
         </section>
 
-        <section class="chapter-1" data-transition="slide" data-about="the restaurant">
+        <section  data-transition="slide" data-about="why cdk">
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Infrastructure Evolution"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+
+                    <img src="presentation/img/aws-daunting.webp" class="img-50-50">
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Traditional Methods"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-ui-frustrations.webp" class="img-50-50">
+
+                    <h2>user interface</h2>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Cloud UI & CLI"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-frustrations.webp" class="img-50-50">
+
+                    <h2>cli</h2>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Beanstalk Era"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-beanstalk-frustrations.webp" class="img-50-50">
+
+                    <h2>beanstalk</h2>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Modern Tooling"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-yaml-frustrations.webp" class="img-50-50">
+
+                    <h2>cloudformation</h2>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Focus on AWS CDK"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-terraform-frustration.webp" class="img-50-50">
+
+                    <h2>Terraform</h2>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Benefits of AWS CDK"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Infrastructure in the cloud</h1>
+                    <img src="presentation/img/aws-cdk-helper.webp" class="img-50-50">
+
+                    <h2>cdk</h2>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Benefits of AWS CDK"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>CDK</p>
+
+                    <pre><code class="hljs language-ts">const lambdaToDynamo = new LambdaToDynamoDB(this, 'id1', {
+    lambdaFunctionProps: {
+        code: Code.fromAsset(`lambda`),
+        runtime: Runtime.NODEJS_18_X,
+        handler: 'index.handler'
+    },
+});
+new CloudFrontToApiGatewayToLambda(this, 'id2', {
+    existingLambdaObj: lambdaToDynamo.lambdaFunction
+});</code></pre>
+                    <p>Cloudformation</p>
+                    <pre><code class="hljs language-json">{
+ "Resources": {
+  "testlambdadynamodbstackLambdaFunctionServiceRole758347A1": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       // 1200 more lines of code</code></pre>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Conclusion"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Conclusion</h1>
+                    <img src="presentation/img/cdk-wins.webp" class="img-50-50">
+                </presentation-chapter>
+            </section>
+        </section>
+
+        <section  data-transition="slide" data-about="how cdk">
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>A bit about AWS</h1>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>EC2</h1>
+                    <p>Elastic Cloud Compute</p>
+                    <p>VPS hosted on AWS</p>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>EC2</h1>
+                    <img src="presentation/img/ec22.gif">
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <pre><code style="max-height: 1000px;">// Create a new VPC
+const vpc = new ec2.Vpc(this, 'MyVpc');
+
+// Create a security group
+const securityGroup = new ec2.SecurityGroup(this, 'SecurityGroup', {
+  vpc,
+  description: 'Allow SSH and HTTPS',
+});
+
+// Replace 'ip-address' with your actual IP address
+securityGroup.addIngressRule(ec2.Peer.ipv4('ip-address/32'),
+    ec2.Port.tcp(22), 'Allow SSH access from this IP');
+
+securityGroup.addIngressRule(ec2.Peer.anyIpv4(),
+    ec2.Port.tcp(443), 'Allow HTTPS access from anywhere');
+
+const instance = new ec2.Instance(this, 'Instance', {
+  vpc,
+  instanceType: new ec2.InstanceType('t3.micro'), // Instance size
+  machineImage: new ec2.AmazonLinuxImage(),       // OS
+  securityGroup: securityGroup,
+  keyName: 'your-key-pair-name' // Replace with your key pair name
+});</code></pre>
+                </presentation-chapter>
+            </section>
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Quick demo</h1>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Automate everything</h1>
+                    <pre><code style="max-height: 1000px;" class="hljs language-ts">const instance = new ec2.Instance(this, 'Instance', {
+  // ... other properties ...
+  userData: ec2.UserData.custom(fs.readFileSync('userdata.sh', 'utf8'))
+});</code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <pre><code style="max-height: 1000px;" class="hljs language-bash">#!/bin/bash
+# Node.js installation
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+sudo yum install -y nodejs
+
+# Copy files from S3
+aws s3 cp s3://your-bucket-name/path/to/your/website /var/www/html --recursive
+
+# Start the Node.js application
+cd /var/www/html
+npm install
+nohup node index.js &</code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="1"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Automate everything</h1>
+                    <pre><code style="max-height: 1000px;" class="hljs language-ts">// S3 bucket for website
+const websiteBucket = new s3.Bucket(this, 'WebsiteBucket', {
+  // Bucket properties
+});
+
+// Deploy website files to S3
+const websiteDeployment = new s3deploy.BucketDeployment(this, 'DeployWebsite', {
+  sources: [s3deploy.Source.asset('./website')],
+  destinationBucket: websiteBucket,
+});
+
+// EC2 instance setup
+const instance = new ec2.Instance(this, 'MyInstance', {
+  // EC2 instance properties and user data
+});
+
+// Ensure EC2 instance is created after files are uploaded to S3
+instance.node.addDependency(websiteDeployment);</code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Lambda</h1>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>VPS that reboots often</h1>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li>Provisioning or managing servers</li>
+                        <li>Creating workload-aware cluster scaling logic</li>
+                        <li>Maintaining event integrations</li>
+                        <li>Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li>Provisioning or managing servers</li>
+                        <li style="color: grey;">Creating workload-aware cluster scaling logic</li>
+                        <li style="color: grey;">Maintaining event integrations</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li>AWS provisions and manages servers</li>
+                        <li style="color: grey;">Creating workload-aware cluster scaling logic</li>
+                        <li style="color: grey;">Maintaining event integrations</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">AWS provisions and manages servers</li>
+                        <li>Creating workload-aware cluster scaling logic</li>
+                        <li style="color: grey;">Maintaining event integrations</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">AWS provisions and manages servers</li>
+                        <li>Lambda's run in parallel</li>
+                        <li style="color: grey;">Maintaining event integrations</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">AWS provisions and manages servers</li>
+                        <li>Lambda's run in parallel, combine with SQS for cluster scaling</li>
+                        <li style="color: grey;">Maintaining event integrations</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">AWS provisions and manages servers</li>
+                        <li style="color: grey;">Lambda's run in parallel</li>
+                        <li>Maintaining event integrations</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">AWS provisions and manages servers</li>
+                        <li style="color: grey;">Lambda's run in parallel</li>
+                        <li>Use lambda as target on events</li>
+                        <li style="color: grey;">Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <img src="presentation/img/lambda-trigger.webp" style="height: 900px; max-height: 900px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>What does a lambda look like</h1>
+                    <pre><code class="hljs language-ts">export const handler = async () => {
+    const Item = {
+        id: 'abc123',
+        value: 'Hello CDK'
+    };
+
+    await dynamo.send(new PutCommand({TableName, Item}));
+
+    return {
+        statusCode: 200,
+        body: `Success writing to database: ${JSON.stringify(Item)}`,
+    };
+}
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>In CDK</h1>
+                    <pre><code class="hljs language-ts">const lambdaToDynamo = new LambdaToDynamoDB(this, 'id', {
+    lambdaFunctionProps: {
+        // This points to the ./lambda folder in this project
+        code: Code.fromAsset(`lambda`),
+        runtime: Runtime.NODEJS_18_X,
+        handler: 'index.handler'
+    },
+});</code></pre>
+                    <img src="presentation/img/lambda-folder.webp" style="height: 300px; max-height: 300px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">Select a managed runtime</li>
+                        <li style="color: grey;">Lambda's run in parallel</li>
+                        <li style="color: grey;">Use lambda as target on events</li>
+                        <li>Managing runtimes</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <img src="presentation/img/lambda.webp" style="height: 900px; max-height: 900px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="2"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Virtual Private Server"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <p>What lambda solves:</p>
+                    <ol>
+                        <li style="color: grey;">Select a managed runtime</li>
+                        <li style="color: grey;">Lambda's run in parallel</li>
+                        <li style="color: grey;">Use lambda as target on events</li>
+                        <li>AWS manages runtimes or create your own</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Serverless database"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <p>DynamoDB</p>
+                    <ol>
+                        <li>Support peaks of more than 20 million requests per second</li>
+                        <li>Secure your data with encryption at rest, automatic backup and restore</li>
+                        <li>Automatically scales up and down to fit your needs</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Serverless database"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <pre><code class="hljs language-ts">this.eventDatabase = new Table(this, 'EventDatabase', {
+    tableName: 'EventDatabase',
+    partitionKey: {
+        name: 'eventId',
+        type: AttributeType.STRING,
+    },
+    sortKey: {
+        name: 'timestamp',
+        type: AttributeType.STRING,
+    },
+    billingMode: BillingMode.PAY_PER_REQUEST,
+    deletionProtection: true,
+    stream: StreamViewType.NEW_IMAGE,
+});</code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="SQS"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+
+                    <p>SQS</p>
+                    <ol>
+                        <li>Serverless queue service</li>
+                        <li>Almost unlimited throughput</li>
+                        <li>FiFo queues possible</li>
+                        <li>Allows cluster parallelization for lambda</li>
+                    </ol>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="SQS"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <p>Cluster parallelization</p>
+                    <div class="r-stack">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-1.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-2.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-3.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-4.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-5.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-6.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-7.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-8.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-9.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-10.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-11.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-12.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-13.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-14.webp">
+                        <img class="fragment fade-in-then-out" src="presentation/img/event-structure-15.webp">
+                    </div>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="4"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="SQS"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>CDK code</h1>
+                <pre><code class="hljs language-ts">const dartsEventSqsQueue = new Queue(this, 'id', {
+  queueName: 'dartsEventQueue.fifo',
+  visibilityTimeout: Duration.seconds(30),
+  fifo: true, // Enable FIFO queue to use message groups
+  removalPolicy: RemovalPolicy.DESTROY,
+  deadLetterQueue: {
+    maxReceiveCount: 10,
+    queue: new Queue(this, 'dartsEventQueue.deadLetterQueue', {
+      queueName: 'dartsEventQueue-deadLetterQueue.fifo',
+      fifo: true,
+      removalPolicy: RemovalPolicy.RETAIN,
+    }),
+  }
+});</code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="API"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Create an API</h1>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="API"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <img src="presentation/img/plan.webp">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="API"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>CDK code</h1>
+                    <pre><code class="hljs language-ts">const lambdaToDynamo = new LambdaToDynamoDB(this, 'lambda2ddb', {
+    lambdaFunctionProps: {
+        code: Code.fromAsset(`src/lambda`),
+        runtime: Runtime.NODEJS_18_X,
+        handler: 'index.handler' // index.ts file, handler function
+    },
+});</code></pre>
+                    <div class="fragment">
+
+                    <pre><p style="padding: 0; margin: 0;">src/lambda/index.ts</p><code class="hljs language-ts">export const handler = async () => {
+    const Item = {id: new Date().toISOString(), value: 'Hello CDK'};
+
+    await dynamo.send(new PutCommand({TableName, Item}));
+
+    return {
+        statusCode: 200,
+        body: `Success writing to database: ${JSON.stringify(Item)}`,
+    };
+}</code></pre>
+                    </div>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="API"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <pre><code class="hljs language-ts">const lambdaToDynamo = new LambdaToDynamoDB(this, 'lambda2ddb', {
+    lambdaFunctionProps: {
+        code: Code.fromAsset(`src/lambda`),
+        runtime: Runtime.NODEJS_18_X,
+        handler: 'index.handler'
+    },
+});</code></pre>
+                    <pre><code class="hljs language-ts">new CloudFrontToApiGatewayToLambda(this, 'cloudfront-api-lambda', {
+    existingLambdaObj: lambdaToDynamo.lambdaFunction
+});</code></pre>
+
+                    <img class="fragment" src="presentation/img/outputs.webp" style="max-height:400px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="API"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <pre><code class="hljs language-ts">const lambdaToDynamo = new LambdaToDynamoDB(this, 'lambda2ddb', {
+    lambdaFunctionProps: {
+        code: Code.fromAsset(`src/lambda`),
+        runtime: Runtime.NODEJS_18_X,
+        handler: 'index.handler'
+    },
+});</code></pre>
+
+                    <pre><code class="hljs language-ts">export const handler = async () => {
+    const Item = {id: new Date().toISOString(), value: 'Hello CDK'};
+
+    await dynamo.send(new PutCommand({TableName, Item}));
+
+    return {
+        statusCode: 200,
+        body: `Success writing to database: ${JSON.stringify(Item)}`,
+    };
+}</code></pre>
+                    <pre><code class="hljs language-ts">new CloudFrontToApiGatewayToLambda(this, 'cloudfront-api-lambda', {
+    existingLambdaObj: lambdaToDynamo.lambdaFunction
+});</code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="6"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Gateway"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>API Gateway</h1>
+                    <p>Separates public internet from your architecture</p>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CDN"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>Cloudfront</h1>
+                    <p>AWS Servers provide caching on edge locations</p>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="CI/CD"
+                                      image1="chapter-3-img-1.webp"
+                                      image2="chapter-3-img-2.webp"
+                >
+                    <h1>CI/CD</h1>
+                    <p>Even your CI/CD can be set up via CDK</p>
+                </presentation-chapter>
+            </section>
+        </section>
+
+        <section  data-transition="slide" data-about="the restaurant">
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="1"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
                     <h1>Restaurant application</h1>
                     <p>&nbsp;</p>
-                    <p>Kitchen</p>
                     <p>Waiters</p>
+                    <p>Kitchen</p>
                     <p>Counter</p>
                 </presentation-chapter>
             </section>
@@ -96,11 +902,11 @@
                 <presentation-chapter lesson="2"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
                     <h1>Waiters take orders</h1>
-                    <img src="presentation/img/robot-holding-phone-2.png" style="max-height: 70vh;">
+                    <img src="presentation/img/robot-holding-phone.webp" style="max-height: 700px;">
                 </presentation-chapter>
             </section>
 
@@ -108,11 +914,11 @@
                 <presentation-chapter lesson="3"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
                     <h1>Kitchen reads orders</h1>
-                    <img src="presentation/img/robot-kitchen-screen-2.png" style="max-height: 70vh;">
+                    <img src="presentation/img/robot-kitchen-screen.webp" style="max-height: 700px;">
                 </presentation-chapter>
             </section>
 
@@ -120,11 +926,11 @@
                 <presentation-chapter lesson="4"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
                     <h1>Payment & Reservations</h1>
-                    <img src="presentation/img/robot-checkout-counter-2.png" style="max-height: 70vh;">
+                    <img src="presentation/img/robot-checkout-counter.webp" style="max-height: 700px;">
                 </presentation-chapter>
             </section>
 
@@ -132,11 +938,35 @@
                 <presentation-chapter lesson="5"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
                     <h1>Application structure</h1>
-                    <img src="presentation/img/structure-2.png" style="width: 50vw;">
+                    <img src="presentation/img/structure-traditional-1.webp">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
+                >
+                    <h1>Application structure</h1>
+                    <img src="presentation/img/thinking.webp">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
+                >
+                    <h1>Application structure</h1>
+                    <img src="presentation/img/attack.webp">
                 </presentation-chapter>
             </section>
 
@@ -144,10 +974,11 @@
                 <presentation-chapter lesson="6"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
-                    <img src="presentation/img/structure2.png" style="width: 50vw;">
+                    <img src="presentation/img/structure-traditional-1.webp" style="max-height:400px;">
+                    <img src="presentation/img/structure-cqrs-0.webp" style="max-height:400px;">
                 </presentation-chapter>
             </section>
 
@@ -155,10 +986,32 @@
                 <presentation-chapter lesson="7"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
-                    <img src="presentation/img/structure3.png" style="width: 50vw;">
+                    <img src="presentation/img/structure-cqrs-1.webp">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
+                >
+                    <img src="presentation/img/cqrs2.webp">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
+                                      subtitle="The Restaurant"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
+                >
+                    <img src="presentation/img/cqrs3.webp">
                 </presentation-chapter>
             </section>
 
@@ -166,314 +1019,197 @@
                 <presentation-chapter lesson="8"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, dumbbell, flag-checkered"
                                       subtitle="The Restaurant"
-                                      image1="chapter-1-img-1.png"
-                                      image2="chapter-1-img-2.png"
+                                      image1="chapter-1-img-1.webp"
+                                      image2="chapter-1-img-2.webp"
                 >
-                    <h1>Application structure</h1>
-                    <img src="presentation/img/structure.png" style="width: 70vw;">
+                    <img src="presentation/img/structure-cqrs-2.webp">
                 </presentation-chapter>
             </section>
         </section>
 
-        <section class="chapter-2" data-transition="slide" data-about="CQRS basics">
+        <section  data-transition="slide" data-about="AWS basics">
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="1"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
                     <h1>Separating reads & writes</h1>
 
-                    <h2>For learning, not for correctness.</h2>
+                    <small>For learning only, it's overengineered.</small>
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="2"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>Basics</h1>
-                    <img src="presentation/img/CQRS1.png" style="max-height: 70vh; max-width: 60vw;">
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="3"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>Shared model</h1>
-                    <img src="presentation/img/CQRS2.png" style="max-height: 70vh; max-width: 60vw;">
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="4"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>Shared model</h1>
-                    <img src="presentation/img/CQRS3.png" style="max-height: 70vh; max-width: 60vw;">
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="5"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
                     <h1>Architecture</h1>
-                    <p>Please don't panic yet.</p>
-                    <img src="presentation/img/stickies.jpeg"
-                         style="width: 50vw; background-color:white; padding:10px; border-radius:4px;">
+                    <img src="presentation/img/architecture-1.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
 
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="6"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>What are we going to build</h1>
-                    <img src="presentation/img/frontend.svg"
-                         style="width: 40vw; background-color:white; padding:10px; border-radius:4px;">
-
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="6"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>What are we going to build</h1>
-                    <img src="presentation/img/frontend-event.svg"
-                         style="width: 75vw; background-color:white; padding:10px; border-radius:4px;">
-
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="7"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>How far will we go?</h1>
-                    <img src="presentation/img/DRAWIO_ARCHITECTURE.svg"
-                         style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="8"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>Bonus: set up CI/CD</h1>
-                    <img src="presentation/img/aws-pipeline.png"
-                         style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
-                </presentation-chapter>
-            </section>
-
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="8"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="CQRS"
-                                      image1="chapter-2-img-1.png"
-                                      image2="chapter-2-img-2.png"
-                >
-                    <h1>Bonus: set up CI/CD</h1>
-                    <img src="presentation/img/aws-ship.png"
-                         style="max-width: 75vw; max-height: 75vh; background-color:white; padding:10px; border-radius:4px;">
-                </presentation-chapter>
-            </section>
-
-        </section>
-
-        <section class="chapter-3" data-transition="slide" data-about="why cdk">
-
-            <!-- Slide 1: Introduction to Infrastructure Provisioning -->
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="1"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Infrastructure Evolution"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
-                >
-                    <h1>Infrastructure in the cloud</h1>
-
-                    <img src="presentation/img/aws-daunting.png" class="img-50-50">
-                </presentation-chapter>
-            </section>
-
-            <!-- Slide 2: Traditional Infrastructure -->
-            <section class="slide-content" data-transition="fade">
-                <presentation-chapter lesson="2"
-                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Traditional Methods"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
-                >
-                    <h1>Infrastructure in the cloud</h1>
-                    <img src="presentation/img/aws-ui-frustrations.png" class="img-50-50">
-
-                    <h2>user interface</h2>
-                </presentation-chapter>
-            </section>
-
-            <!-- Slide 3: Cloud Vendor UI & CLI -->
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="3"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Cloud UI & CLI"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
-                    <h1>Infrastructure in the cloud</h1>
-                    <img src="presentation/img/aws-frustrations.png" class="img-50-50">
-
-                    <h2>cli</h2>
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-2.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
 
-            <!-- Slide 4: Beanstalk and Managed Infra -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="3"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
+                >
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-3.webp" style="max-height: 700px; max-width: 1050px;">
+                </presentation-chapter>
+            </section>
+
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="4"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Beanstalk Era"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
-                    <h1>Infrastructure in the cloud</h1>
-                    <img src="presentation/img/aws-beanstalk-frustrations.png" class="img-50-50">
-
-                    <h2>beanstalk</h2>
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-4.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
 
-            <!-- Slide 5: CDK, SAM, Terraform Introduction -->
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="5"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Modern Tooling"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
-                    <h1>Infrastructure in the cloud</h1>
-                    <img src="presentation/img/aws-yaml-frustrations.png" class="img-50-50">
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-5.webp" style="max-height: 700px; max-width: 1050px;">
 
-                    <h2>cloudformation</h2>
                 </presentation-chapter>
             </section>
 
-            <!-- Slide 6: Focusing on AWS CDK -->
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="5"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
+                >
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-6.webp" style="max-height: 700px; max-width: 1050px;">
+
+                </presentation-chapter>
+            </section>
+
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="6"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Focus on AWS CDK"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
-                    <h1>Infrastructure in the cloud</h1>
-                    <img src="presentation/img/aws-terraform-frustration.png" class="img-50-50">
-
-                    <h2>Terraform</h2>
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-7.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
 
-            <!-- Slide 7: Advantages of AWS CDK -->
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="7"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Benefits of AWS CDK"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
-                    <h1>Infrastructure in the cloud</h1>
-                    <img src="presentation/img/aws-cdk-helper.png" class="img-50-50">
-
-                    <h2>cdk</h2>
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-8.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
 
-            <!-- Slide 8: Conclusion and Final Thoughts -->
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="8"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      subtitle="Conclusion"
-                                      image1="chapter-3-img-1.png"
-                                      image2="chapter-3-img-2.png"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
                 >
-                    <h1>Conclusion</h1>
-                    <img src="presentation/img/cdk-wins.png" class="img-50-50">
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/aws-pipeline.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
 
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="8"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      subtitle="Services"
+                                      image1="chapter-2-img-1.webp"
+                                      image2="chapter-2-img-2.webp"
+                >
+                    <h1>Bonus: set up CI/CD</h1>
+                    <img src="presentation/img/aws-ship.webp"
+                         style="max-width: 1400px; max-height: 750px; background-color:white; padding:10px; border-radius:4px;">
+                </presentation-chapter>
+            </section>
         </section>
 
-        <section class="chapter-4" data-transition="slide" data-about="cdk basics">
+        <section  data-transition="slide" data-about="cdk basics">
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="1"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Constructs</h1>
-                    <img src="presentation/img/constructs.png" class="img-50-50">
-                    <h2>EC2, DynamoDB, S3, CloudFront, certificates, DNS...</h2>
+                    <img src="presentation/img/constructs.webp" class="img-50-50">
+                    <h2>Lambda, DynamoDB, S3, DNS...</h2>
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="2"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Construct levels</h1>
-                    <img src="presentation/img/construct-levels.png" class="img-50-50">
+                    <img src="presentation/img/construct-levels.webp" class="img-50-50">
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="3"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Hosting a simple website</h1>
-                    <img src="./presentation/img/cloudfront-to-s3.png" style="background-color: #fff;">
+                    <img src="./presentation/img/cloudfront-to-s3.webp" style="background-color: #fff;">
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="4"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Level 1 construct</h1>
-                    <pre><code>
+                    <pre><code class="hljs language-ts">
 // Create S3 bucket
 const bucket = new CfnBucket(this, 'MyBucket', {
   bucketName: 'my-bucket',
@@ -541,18 +1277,18 @@ const bucketPolicy = new CfnResource(this, 'BucketPolicy', {
   }
 });
                     </code></pre>
-                    <img src="./presentation/img/cloudfront-to-s3.png" style="background-color: #fff;">
+                    <img src="./presentation/img/cloudfront-to-s3.webp" style="background-color: #fff;">
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="4"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Level 2 construct</h1>
-                    <pre><code>
+                    <pre><code class="hljs language-ts">
 const bucket = new Bucket(this, 'id', {bucketName: 'name'});
 const originAccess = new OriginAccessIdentity(this);
 const origin = new S3Origin(bucket, {originAccess});
@@ -565,44 +1301,44 @@ const distribution = new Distribution(this, 'id', {
   certificate: props?.cloudfrontCertificate,
 });
                     </code></pre>
-                    <img src="./presentation/img/cloudfront-to-s3.png" style="background-color: #fff;">
+                    <img src="./presentation/img/cloudfront-to-s3.webp" style="background-color: #fff;">
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="4"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Level 3 construct</h1>
-                    <pre><code>
+                    <pre><code class="hljs language-ts">
 new CloudFrontToS3(this, 'cloudfront-s3', {});
                     </code></pre>
-                    <img src="./presentation/img/cloudfront-to-s3.png" style="background-color: #fff;">
+                    <img src="./presentation/img/cloudfront-to-s3.webp" style="background-color: #fff;">
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="5"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Stacks</h1>
 
-                    <img src="./presentation/img/aws-stacks.png" style="background-color: #fff;">
+                    <img src="./presentation/img/aws-stacks.webp" style="background-color: #fff;">
                 </presentation-chapter>
             </section>
 
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="6"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Example</h1>
-                    <pre><code>
+                    <pre><code class="hljs language-ts">
 export class BucketStack extends Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
@@ -625,11 +1361,133 @@ export class BucketStack extends Stack {
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="7"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/architecture-8.webp" style="max-height: 700px; max-width: 1050px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <img src="presentation/img/demo-1.webp" style="max-height: 700px; max-width: 1050px;">
+                    <pre><code class="hljs language-ts">
+export class BucketStack extends Stack {
+  constructor(scope, id, props) {
+    super(scope, id, props);
+
+    new CloudFrontToS3(this, 'cloudfront-s3', {
+      cloudfrontDistributionProps: {
+        defaultRootObject: 'index.html',
+        originConfigs: [{
+          behaviors : [ {isDefaultBehavior: true} ],
+          originPath: '/mywebsitefolder'
+        }]
+      }
+    });
+  }
+}
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/construct-1.webp" style="max-height: 700px; max-width: 1050px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <img src="presentation/img/demo-2.webp" style="max-height: 700px; max-width: 1050px;">
+                    <pre><code class="hljs language-ts">
+new CognitoToApiGatewayToLambda(this, 'cognito-apigateway-lambda', {
+  lambdaFunctionProps: {
+    code: lambda.Code.fromAsset(`lambda`),
+    runtime: lambda.Runtime.NODEJS_16_X,
+    handler: 'index.handler'
+  }
+});
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <h1>Architecture</h1>
+                    <img src="presentation/img/construct-2.webp" style="max-height: 700px; max-width: 1050px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <pre><code class="hljs language-ts">
+const messageQ = new LambdaToSqsToLambda(this, 'id', {
+  producerLambdaFunctionProps: {
+      runtime: lambda.Runtime.NODEJS_16_X,
+      handler: 'index.handler',
+      code: lambda.Code.fromAsset(`producer-lambda`)
+  },
+  consumerLambdaFunctionProps: {
+    runtime: lambda.Runtime.NODEJS_16_X,
+    handler: 'index.handler',
+    code: lambda.Code.fromAsset(`consumer-lambda`)
+  }
+});
+                    </code></pre>
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <img src="presentation/img/demo-3.webp" style="max-height: 700px; max-width: 1050px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
+                >
+                    <img src="presentation/img/construct-3.webp" style="max-height: 700px; max-width: 1050px;">
+                </presentation-chapter>
+            </section>
+
+            <section class="slide-content" data-transition="fade">
+                <presentation-chapter lesson="7"
+                                      chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>CI/CD</h1>
-                    <pre><code>export class MyPipelineStack extends cdk.Stack {
+                    <pre><code class="hljs language-ts">export class MyPipelineStack extends cdk.Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
@@ -652,10 +1510,11 @@ export class BucketStack extends Stack {
             <section class="slide-content" data-transition="fade">
                 <presentation-chapter lesson="8"
                                       chapters="star, dumbbell, dumbbell, dumbbell, star, dumbbell, book, flag-checkered"
-                                      image1="chapter-4-img-1.png"
-                                      image2="chapter-4-img-2.png"
+                                      image1="chapter-4-img-1.webp"
+                                      image2="chapter-4-img-2.webp"
                 >
                     <h1>Live Demo</h1>
+                    <img src="presentation/img/plan.webp" style="max-height: 700px; max-width: 1050px;">
                 </presentation-chapter>
             </section>
         </section>
@@ -669,8 +1528,8 @@ export class BucketStack extends Stack {
 <script type="module" src="presentation/chapter.js"></script>
 <script>
     Reveal.initialize({
-        width: "100%",
-        height: "100%",
+        width: "1920",
+        height: "1080",
         margin: 0,
         minScale: 1,
         maxScale: 1,
