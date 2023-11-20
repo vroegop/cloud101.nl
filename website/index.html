@@ -1531,8 +1531,6 @@ const messageQ = new LambdaToSqsToLambda(this, 'id', {
         width: "1920",
         height: "1080",
         margin: 0,
-        minScale: 1,
-        maxScale: 1,
         controls: true,
         progress: false,
         history: true,
@@ -1544,6 +1542,8 @@ const messageQ = new LambdaToSqsToLambda(this, 'id', {
         display: 'block',
         plugins: [RevealNotes, RevealZoom, RevealHighlight]
     });
+
+
 </script>
 </body>
 </html>
