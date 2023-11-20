@@ -277,12 +277,13 @@ securityGroup.addIngressRule(ec2.Peer.ipv4('ip-address/32'),
 securityGroup.addIngressRule(ec2.Peer.anyIpv4(),
     ec2.Port.tcp(443), 'Allow HTTPS access from anywhere');
 
-const instance = new ec2.Instance(this, 'Instance', {
+new Instance(this, 'Instance', {
   vpc,
-  instanceType: new ec2.InstanceType('t3.micro'), // Instance size
-  machineImage: new ec2.AmazonLinuxImage(),       // OS
-  securityGroup: securityGroup,
-  keyName: 'your-key-pair-name' // Replace with your key pair name
+  instanceType: InstanceType.of(InstanceClass.T3, InstanceSize.MICRO),
+  vpcSubnets: { subnetType: SubnetType.PUBLIC },
+  associatePublicIpAddress: true,
+  machineImage: new AmazonLinuxImage(),
+  ssmSessionPermissions: true
 });</code></pre>
                 </presentation-chapter>
             </section>
